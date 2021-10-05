@@ -1,0 +1,21 @@
+<br />
+<form class="form-inline">
+    <label for="valor">Valor:</label>
+    <input type="number" step='0.01' min='0' name="valor" class="form-control" placeholder="0" >
+    <label for="medidaDe">De:</label>
+    <select name="medidaDe" class="form-control" required>
+        <option *ngFor="let medida of medidas" [value]="medida.sigla">
+            {{medida.sigla}} - {{medida.descricao}}
+        </option>
+    </select>
+    <label for="medidaPara">Para:</label>
+    <select name="medidaPara" class="form-control" required>
+        <option *ngFor="let medida of medidas" [value]="medida.sigla">
+            {{medida.sigla}} - {{medida.descricao}}
+        </option>        
+    </select>
+    <br>
+    <input type="button" name="botao" class="form-control" (click)="converter()">
+    <br>
+    <input type="number" step='0.01' min='0' name="valor" class="form-control" placeholder="0" [value]="converter()">
+</form>
